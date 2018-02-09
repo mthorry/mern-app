@@ -28,7 +28,7 @@ class CommentBox extends Component {
 			});
 	}
 
-	handleCommentDelete(id) {
+	handleCommentDelete = (id) => {
 	 	axios.delete(`${this.props.url}/${id}`)
 	 		.then(res => {
 	 			console.log('Comment deleted');
@@ -38,14 +38,12 @@ class CommentBox extends Component {
 			});
 	}
 
-	handleCommentUpdate(id, comment) {
+	handleCommentUpdate = (id, comment) => {
 	//sends the comment id and new author/text to our api
-	console.log(this.props)
-	// let url = `${this.props.url}/${id}`
-	// 	axios.put(url, comment)
-	// 	 	.catch(err => {
-	// 	 		console.log(err);
-	// 	 	})
+		axios.put(`${this.props.url}/${id}`, comment)
+		 	.catch(err => {
+		 		console.log(err);
+		 	})
 	}
 
 	componentDidMount() {
@@ -54,7 +52,6 @@ class CommentBox extends Component {
 	}
 
 	render() {
-		console.log(this.state.data)
 		 return (
 			<div style={ style.commentBox }>
 				<h2>Comments:</h2>
