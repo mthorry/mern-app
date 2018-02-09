@@ -36,6 +36,7 @@ class CommentBox extends Component {
 			.catch(err => {
 			 	console.error(err);
 			});
+			setTimeout(() => { this.loadCommentsFromServer() }, 100)
 	}
 
 	handleCommentUpdate = (id, comment) => {
@@ -44,6 +45,7 @@ class CommentBox extends Component {
 		 	.catch(err => {
 		 		console.log(err);
 		 	})
+			setTimeout(() => { this.loadCommentsFromServer() }, 100)
 	}
 
 	componentDidMount() {
