@@ -26,6 +26,7 @@ class CommentBox extends Component {
 				console.error(err);
 				this.setState({ data: comments });
 			});
+		setTimeout(() => { this.loadCommentsFromServer() }, 100)
 	}
 
 	handleCommentDelete = (id) => {
@@ -36,7 +37,7 @@ class CommentBox extends Component {
 			.catch(err => {
 			 	console.error(err);
 			});
-			setTimeout(() => { this.loadCommentsFromServer() }, 100)
+		setTimeout(() => { this.loadCommentsFromServer() }, 100)
 	}
 
 	handleCommentUpdate = (id, comment) => {
@@ -45,12 +46,11 @@ class CommentBox extends Component {
 		 	.catch(err => {
 		 		console.log(err);
 		 	})
-			setTimeout(() => { this.loadCommentsFromServer() }, 100)
+		setTimeout(() => { this.loadCommentsFromServer() }, 100)
 	}
 
 	componentDidMount() {
 		this.loadCommentsFromServer()
-		// setInterval(this.loadCommentsFromServer, this.props.pollInterval)
 	}
 
 	render() {
